@@ -1,0 +1,29 @@
+# Uncomment the next line to define a global platform for your project
+platform :ios, '10.0'
+require_relative '../node_modules/react-native/scripts/react_native_pods'
+require_relative '../node_modules/@react-native-community/cli-platform-ios/native_modules'
+
+target 'SpeechCadet' do
+  # Comment the next line if you don't want to use dynamic frameworks
+  # use_frameworks!
+
+  config = use_native_modules!
+  use_react_native!(:path => config["reactNativePath"])
+
+
+
+  pod 'RNVectorIcons', :path => '../node_modules/react-native-vector-icons'
+
+  target 'SpeechCadetTests' do
+    inherit! :search_paths
+    # Pods for testing
+  end
+  use_native_modules!
+end
+
+target 'SpeechCadet-tvOS' do
+  target 'SpeechCadet-tvOSTests' do
+    inherit! :search_paths
+    # Pods for testing
+  end
+end
